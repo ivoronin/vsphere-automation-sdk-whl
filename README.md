@@ -1,0 +1,15 @@
+# Required packages (Ubuntu 19.10)
+- python3-distutils
+- python3-pip
+- python3-lxml
+- python3-cffi
+- python3-asn1crypto
+- python3-certifi
+- python3-chardet
+- python3-cryptography
+- python3-idna
+- python3-openssl
+- python3-pycparser
+- python3-requests
+- python3-setuptools
+- python3-six

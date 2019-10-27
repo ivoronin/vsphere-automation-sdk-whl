@@ -1,0 +1,31 @@
+language: python
+python:
+- '3.7'
+before_install:
+- pip3 install --upgrade --user pip==19.3.1
+addons:
+  apt:
+    update: true
+    packages:
+    - libxml2-dev
+    - libffi-dev
+    - libssl-dev
+    - libxslt-dev
+    - libz-dev
+env:
+- CFLAGS="-I/usr/include/libxml2"
+script:
+- "~/.local/bin/pip3 wheel git+https://github.com/vmware/vsphere-automation-sdk-python@v6.9.1"
+deploy:
+  provider: releases
+  file:
+  - vSphere_Automation_SDK-*
+  - nsx_*
+  - vmc_*
+  - vapi_*
+  file_glob: true
+  skip_cleanup: true
+  on:
+    tags: true
+  api-key:
+    secure: K53mefKfz0APEGnyL913TTOwWCSh1OiI2XJouk/Q5TCowygIE+N0Qe1djTBjgcZ9/FF0f16DD9zb0kPmhRNveiQ0uZqrS4Ewo5yXAKhSkaCA9U9Jbbi43fqMa7NQYX0SLEQeflswsf2BVRzuUqU5V/WCdhwUTaAJd/gqFPlanVzldIIj8DkpfcYeywtOmSgzKS4Xn5CRgG0z0h7bAqqtTX1Z/hCNbJtbFDOdk8ScD9kb7Zej01YoZZASxTWNyu6fTgTs6Fqzny6c59KgF/HeAnRgFpCDHur4a8YbniGzmWn6fJM00EbXZ6yfkAgW0y1eJlIBAT+gLQ9lgUbH32sQNvyTgyx7bYnx4I6KuwEN5iMgyg0r8E69XsDAVbVT882biAptSwHwpKI62HCfKMZ0xoPmjatWtm3sncitbSsnFo/DD2hO8kUtkek3qORJoWn3ToaJCC4LeE7+e0Xu2lOoeYVhYUClT8MkF+9/wNqbFU7eX6cEYA5aSqUGt6Ub0oIPBTkxffyzUEtqP+KfYmbPq9VEiz4vtA/ZzRTfWgG9zbWRkjOkGySaBQ7FuonSQddHFzTiqoIQNHNm+nLPQHvHp+OpV0TkrPU4pdaOp63Jwkmv1knmXS3rgFjrM3jRpbI+FmIRcIcf5dQwwCz8pYg1PyeYoGObdROOm8RwuNVK6O8=
