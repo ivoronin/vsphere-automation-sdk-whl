@@ -2,7 +2,7 @@ language: python
 python:
 - '3.7'
 before_install:
-- pip3 install --upgrade --user pip==19.3.1
+- pip3 install --upgrade pip==19.3.1
 addons:
   apt:
     update: true
@@ -15,7 +15,7 @@ addons:
 env:
 - CFLAGS="-I/usr/include/libxml2"
 script:
-- "~/.local/bin/pip3 wheel git+https://github.com/vmware/vsphere-automation-sdk-python@v6.9.1"
+- pip3 wheel git+https://github.com/vmware/vsphere-automation-sdk-python@v6.9.1"
 deploy:
   provider: releases
   file:
