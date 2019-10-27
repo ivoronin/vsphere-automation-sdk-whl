@@ -15,7 +15,7 @@ addons:
 env:
 - CFLAGS="-I/usr/include/libxml2"
 script:
-- pip3 wheel git+https://github.com/vmware/vsphere-automation-sdk-python@v6.9.1"
+- pip3 wheel git+https://github.com/vmware/vsphere-automation-sdk-python@v6.9.1
 deploy:
   provider: releases
   file:
